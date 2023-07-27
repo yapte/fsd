@@ -1,0 +1,38 @@
+<ng-container *ngIf="application$ |async as application">
+
+    <header>
+        <a [routerLink]="['../']" pButton icon="pi pi-arrow-left"
+            class="p-button p-button-text p-button-icon-only p-button-rounded"></a>
+        <h3> {{application.name}} </h3>
+        <button pButton icon="pi pi-trash" class="p-button p-button-text p-button-icon-only p-button-rounded"
+            (click)="remove()"></button>
+    </header>
+
+    <div class="body">
+        <div class="left">
+            <a [routerLink]="['/applications', applicationId]" routerLinkActive="active"
+                [routerLinkActiveOptions]="{exact: true}" pButton label="General info"
+                class="p-button p-button-text"></a>
+
+            <div class="steps">
+                <div class="steps-title">
+                    <span> Steps: {{application.steps.length}} </span>
+                    <a [routerLink]="[{outlets: {sidebar: ['create-step']}}]" pButton icon="pi pi-plus"
+                        class="p-button p-button-text p-button-icon-only p-button-rounded"></a>
+                </div>
+
+                <div class="steps-list">
+                    <app-application-step-row *ngFor="let step of application.steps"
+                        [routerLink]="['/applications', application.id, 'steps', step.id]" [step]="step"
+                        routerLinkActive="active" @titleAnimation></app-application-step-row>
+
+                    <span *ngIf="!application.steps.length"> EMPTY LIST </span>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <ng-content></ng-content>
+        </div>
+    </div>
+
+</ng-container>

@@ -1,0 +1,10 @@
+<div class="left">
+    <p> {{step.name}} </p>
+    <p class="description"> Description {{step.name}} </p>
+</div>
+
+<div class="right">
+    <button pButton icon="pi pi-sliders-v" class="p-button p-button-text p-button-rounded p-button-icon-only"
+        (click)="toggle($event)"></button>
+    <p-menu [model]="items" [popup]="true"></p-menu>
+</div>

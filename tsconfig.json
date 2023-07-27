@@ -22,7 +22,24 @@
     "lib": [
       "ES2022",
       "dom"
-    ]
+    ],
+    "paths": {
+      "api": [
+        "src/app/1-shared/api/public-api.ts"
+      ],
+      "entities": [
+        "src/app/2-entities/public-api.ts"
+      ],
+      "features": [
+        "src/app/3-features/public-api.ts"
+      ],
+      "widgets": [
+        "src/app/4-widgets/public-api.ts"
+      ],
+      "pages": [
+        "src/app/5-pages/public-api.ts"
+      ],
+    },
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

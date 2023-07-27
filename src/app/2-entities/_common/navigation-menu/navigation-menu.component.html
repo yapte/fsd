@@ -1,0 +1,18 @@
+<a [routerLink]="['/']" pButton icon="pi pi-circle" class="p-button p-button-text p-button-icon-only home-btn"></a>
+
+<div class="list">
+    <a [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" pButton
+        icon="pi pi-desktop" class="p-button p-button-text p-button-icon-only"></a>
+    <a [routerLink]="['/signals']" routerLinkActive="active" pButton icon="pi pi-tag"
+        class="p-button p-button-text p-button-icon-only"></a>
+    <a [routerLink]="['/applications']" routerLinkActive="active" pButton icon="pi pi-palette"
+        class="p-button p-button-text p-button-icon-only"></a>
+</div>
+
+<div class="space"></div>
+
+<a [routerLink]="['/projects']" routerLinkActive="active" pButton icon="pi pi-folder"
+    class="p-button p-button-text p-button-icon-only profile-btn"></a>
+<a [routerLink]="['/profile']" routerLinkActive="active" pButton icon="pi pi-user"
+    class="p-button p-button-text p-button-icon-only profile-btn"></a>
+<a [routerLink]="['/enter']" pButton icon="pi pi-sign-out" class="p-button p-button-text p-button-icon-only"></a>

@@ -1,1 +1,42 @@
-/* You can add global styles to this file, and also import other style files */
+@use "primeicons/primeicons.css";
+@use "primeng/resources/primeng.css";
+@use "primeng/resources/themes/lara-light-blue/theme.css";
+
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+
+// PRIMENG
+.p-button.p-button-xs {
+    width: auto;
+    height: auto;
+    padding: 8px;
+    font-size: 12px;
+
+    .pi {
+        font-size: 12px;
+    }
+}
+
+.ng-invalid.ng-touched {
+    border-color: red;
+}

@@ -1,0 +1,23 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    background-color: white;
+    padding: 12px;
+    box-shadow: 0 0 12px 0 rgba(0, 0, 0, .04);
+    z-index: 1;
+
+    .space {
+        flex: 1 1;
+    }
+}
