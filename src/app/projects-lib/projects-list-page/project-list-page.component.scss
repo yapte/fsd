@@ -1,0 +1,31 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    // padding: 24px;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    border-bottom: solid 1px #efefef;
+
+    h2 {
+        flex: 1 1;
+    }
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+li a {
+    display: flex;
+    padding: 12px;
+    border: solid 1px #efefef;
+}

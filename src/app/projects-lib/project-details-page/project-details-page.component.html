@@ -1,0 +1,17 @@
+<header>
+    <a [routerLink]="['/projects']" pButton icon="pi pi-arrow-left" class="p-button-text p-button-icon-only"></a>
+    <h2> Title </h2>
+    <button pButton icon="pi pi-trash" class="p-button-text p-button-icon-only"></button>
+</header>
+
+<div class="body">
+    <div class="left">
+        <a [routerLink]="['/projects', projectId]" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            general info
+        </a>
+        <a [routerLink]="['/projects', projectId, 'dashboards']" routerLinkActive="active"> Dashboards </a>
+    </div>
+    <div class="right">
+        <router-outlet></router-outlet>
+    </div>
+</div>

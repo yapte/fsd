@@ -1,0 +1,18 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+
+    <header>
+        <h3>project-create works!</h3>
+
+        <button pButton label="Create" type="submit"></button>
+    </header>
+
+    <div class="form-item">
+        <label> Name </label>
+        <input pInputText formControlName="name" type="text">
+    </div>
+    <div class="form-item">
+        <label> Descriiption </label>
+        <input pInputText formControlName="description" type="text">
+    </div>
+
+</form>

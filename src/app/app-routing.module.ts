@@ -18,7 +18,7 @@ const routes: Routes = [
     ],
   },
   // { path: 'applications/:applicationId', loadChildren: () => import('pages').then(m => m.ApplicationDetailsPageModule) },
-  // { path: 'projects', loadChildren: () => import('./projects-lib/projects-lib.module').then(m => m.ProjectsLibModule) },
+  { path: 'projects', loadChildren: () => import('./projects-lib/projects-lib.module').then(m => m.ProjectsLibModule) },
 ];
 
 @NgModule({
