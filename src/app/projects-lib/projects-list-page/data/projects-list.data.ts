@@ -1,11 +1,16 @@
 import { Injectable } from "@angular/core";
-import { ProjectsApi } from "api";
 import { Observable, delay, of } from "rxjs";
-import { ProjectShort } from "../models/project-short";
-import { ProjectCreate } from "../models/project-create";
+
+// LIB common/api
+import { ProjectsApi } from "api";
+
+// core folder
+import { ProjectShort } from "../core/models/project-short";
+import { ProjectCreate } from "../core/models/project-create";
+import { AbstrastProjectsListData } from "../core/abstract-projects-list.data";
 
 @Injectable()
-export class ProjectsListData {
+export class ProjectsListData implements AbstrastProjectsListData {
 
     constructor(private projectsApi: ProjectsApi) { }
 

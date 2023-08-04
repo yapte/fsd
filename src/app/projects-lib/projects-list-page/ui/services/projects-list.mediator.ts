@@ -1,10 +1,13 @@
 import { Injectable } from "@angular/core";
-import { ProjectsListData } from "../data/projects-list.data";
-import { ConfirmationService, MessageService } from "primeng/api";
 import { Router } from "@angular/router";
 import { BehaviorSubject, Observable, filter, map, tap } from "rxjs";
-import { ProjectShort } from "../models/project-short";
-import { ProjectCreate } from "../models/project-create";
+
+import { ConfirmationService, MessageService } from "primeng/api";
+
+// core folder
+import { ProjectShort } from "../../core/models/project-short";
+import { ProjectCreate } from "../../core/models/project-create";
+import { ProjectsListService } from "../../core/project-list.service";
 
 @Injectable()
 export class ProjectsListMediator {
@@ -17,14 +20,14 @@ export class ProjectsListMediator {
     selectedTableRows$ = new BehaviorSubject<ProjectShort[]>([]);
 
     constructor(
-        private data: ProjectsListData,
+        private projectListService: ProjectsListService,
         private snack: MessageService,
         private confirmService: ConfirmationService,
         private router: Router,
     ) { }
 
     private fetch(): void {
-        this.data.getProjects(this.requestModel)
+        this.projectListService.getProjects(this.requestModel)
             .pipe(
                 tap({
                     next: ps => this.projects$.next(ps),
@@ -56,7 +59,7 @@ export class ProjectsListMediator {
     }
 
     removeProject(project: ProjectShort): void {
-        this.data.removeProject(project.id)
+        this.projectListService.removeProject(project.id)
             .pipe(
                 tap({
                     next: () => this.fetch(),
@@ -75,7 +78,7 @@ export class ProjectsListMediator {
             header: 'Remove',
             message: `Are you sure (${projectIds.length})?`,
             accept: () => {
-                this.data.removeProjects(projectIds)
+                this.projectListService.removeProjects(projectIds)
                     .pipe(
                         tap({
                             next: () => this.fetch(),
@@ -88,7 +91,7 @@ export class ProjectsListMediator {
     }
 
     createProject(model: ProjectCreate): Observable<void> {
-        return this.data.createProject(model)
+        return this.projectListService.createProject(model)
             .pipe(
                 tap({
                     next: () => this.fetch(),

@@ -1,12 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ProjectDetailsPageComponent } from './project-details-page.component';
 import { ButtonModule } from 'primeng/button';
+
 import { ProjectDetailsPageRoutingModule } from './project-details-page-routing.module';
-import { GeneralInfoComponent } from './components/general-info/general-info.component';
-import { DashboardsListComponent } from './components/dashboards-list/dashboards-list.component';
-import { DashboardRowComponent } from './components/dashboard-row/dashboard-row.component';
+
 import { TableModule } from 'primeng/table';
+
+// ui folder
+import { GeneralInfoComponent } from './ui/components/general-info/general-info.component';
+import { DashboardsListComponent } from './ui/components/dashboards-list/dashboards-list.component';
+import { DashboardRowComponent } from './ui/components/dashboard-row/dashboard-row.component';
+import { ProjectDetailsPageComponent } from './ui/components/project-details-page/project-details-page.component';
+
+// core folder
+import { AbstractProjectDetailData } from './core/abstract-project-dertails.data';
+import { ProjectDetailsService } from './core/project-details.service';
+
+// data folder
+import { ProjectDetailData } from './data/project-dertails.data';
 
 
 
@@ -23,6 +34,10 @@ import { TableModule } from 'primeng/table';
 
     ButtonModule,
     TableModule,
+  ],
+  providers: [
+    { provide: AbstractProjectDetailData, useClass: ProjectDetailData },
+    ProjectDetailsService,
   ]
 })
 export class ProjectDetailsPageModule { }

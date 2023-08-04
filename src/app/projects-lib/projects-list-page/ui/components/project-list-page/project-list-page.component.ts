@@ -1,14 +1,17 @@
 import { Component } from '@angular/core';
-import { ProjectsListData } from './data/projects-list.data';
-import { ProjectsListMediator } from './services/projects-list.mediator';
 import { Observable } from 'rxjs';
-import { ProjectShort } from './models/project-short';
+
+// core folder
+import { ProjectShort } from '../../../core/models/project-short';
+
+// CURRENT ui folder
+import { ProjectsListMediator } from '../../services/projects-list.mediator';
 
 @Component({
   selector: 'app-project-list-page',
   templateUrl: './project-list-page.component.html',
   styleUrls: ['./project-list-page.component.scss'],
-  providers: [ProjectsListMediator, ProjectsListData]
+  providers: [ProjectsListMediator]
 })
 export class ProjectListPageComponent {
   isSidebarVisible = false;

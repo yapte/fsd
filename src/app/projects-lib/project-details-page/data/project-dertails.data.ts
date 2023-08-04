@@ -1,8 +1,12 @@
 import { Injectable } from "@angular/core";
-import { ProjectsApi } from "api";
 import { Observable, delay, of } from "rxjs";
-import { Project } from "../models/project";
-import { ProjectDashboard } from "../models/project-dashboard";
+
+// LIB api
+import { ProjectsApi } from "api";
+
+// core folder
+import { Project } from "../core/models/project";
+import { ProjectDashboard } from "../core/models/project-dashboard";
 
 @Injectable()
 export class ProjectDetailData {

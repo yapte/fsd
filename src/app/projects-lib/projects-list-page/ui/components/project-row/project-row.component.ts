@@ -1,6 +1,10 @@
 import { Component, Input } from '@angular/core';
+
+// core folder
+import { ProjectShort } from '../../../core/models/project-short';
+
+// CURRENT ui folder
 import { ProjectsListMediator } from '../../services/projects-list.mediator';
-import { ProjectShort } from '../../models/project-short';
 
 @Component({
   selector: 'app-project-row',

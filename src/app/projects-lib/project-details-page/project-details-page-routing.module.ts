@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ProjectDetailsPageComponent } from './project-details-page.component';
-import { GeneralInfoComponent } from './components/general-info/general-info.component';
-import { DashboardsListComponent } from './components/dashboards-list/dashboards-list.component';
+
+// ui folder
+import { GeneralInfoComponent } from './ui/components/general-info/general-info.component';
+import { DashboardsListComponent } from './ui/components/dashboards-list/dashboards-list.component';
+import { ProjectDetailsPageComponent } from './ui/components/project-details-page/project-details-page.component';
 
 const routes: Routes = [
   {

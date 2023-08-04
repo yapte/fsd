@@ -1,8 +1,11 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+
+// core folder
+import { ProjectCreate } from '../../../core/models/project-create';
+
+// CURRENT ui folder
 import { ProjectsListMediator } from '../../services/projects-list.mediator';
-import { ProjectCreate } from '../../models/project-create';
-import { tap } from 'rxjs';
 
 @Component({
   selector: 'app-project-create',

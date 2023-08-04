@@ -1,10 +1,13 @@
 import { Injectable } from "@angular/core";
-import { ProjectDetailData } from "../data/project-dertails.data";
 import { BehaviorSubject, Observable, filter, map, tap } from "rxjs";
-import { Project } from "../models/project";
-import { ProjectDashboard } from "../models/project-dashboard";
-import { ConfirmationService, MessageService } from "primeng/api";
 import { Router } from "@angular/router";
+
+import { ConfirmationService, MessageService } from "primeng/api";
+
+// core folder
+import { Project } from "../../core/models/project";
+import { ProjectDashboard } from "../../core/models/project-dashboard";
+import { ProjectDetailsService } from "../../core/project-details.service";
 
 @Injectable()
 export class ProjectDetailsMediator {
@@ -17,7 +20,7 @@ export class ProjectDetailsMediator {
     private selectedTableRows$ = new BehaviorSubject<ProjectDashboard[]>([]);
 
     constructor(
-        private data: ProjectDetailData,
+        private projectDetailsService: ProjectDetailsService,
         private snack: MessageService,
         private confirmService: ConfirmationService,
         private router: Router,
@@ -29,7 +32,7 @@ export class ProjectDetailsMediator {
     }
 
     private fetchProject(): void {
-        this.data.getProject(this.projectId)
+        this.projectDetailsService.getProject(this.projectId)
             .pipe(
                 tap({
                     next: p => this.project$.next(p),
@@ -40,7 +43,7 @@ export class ProjectDetailsMediator {
     }
 
     fetchDashboards(): void {
-        this.data.getDashboards(this.projectId)
+        this.projectDetailsService.getDashboards(this.projectId)
             .pipe(
                 tap({
                     next: ds => this.dashboards$.next(ds),
@@ -75,7 +78,7 @@ export class ProjectDetailsMediator {
             message: `${dashboard.name} => ${project.name}`,
             accept: () => {
 
-                this.data.moveDashboardToProject(dashboard.id, project.id)
+                this.projectDetailsService.moveDashboardToProject(dashboard.id, project.id)
                     .pipe(
                         tap({
                             next: () => this.fetchDashboards(),
@@ -93,7 +96,7 @@ export class ProjectDetailsMediator {
             header: `Delete ${dashboard.name}?`,
             accept: () => {
 
-                this.data.removeDashboard(dashboard.id)
+                this.projectDetailsService.removeDashboard(dashboard.id)
                     .pipe(
                         tap({
                             next: () => this.fetchDashboards(),
@@ -111,7 +114,7 @@ export class ProjectDetailsMediator {
             header: `Delete ${project.name}?`,
             accept: () => {
 
-                this.data.removeProject(project.id)
+                this.projectDetailsService.removeProject(project.id)
                     .pipe(
                         tap({
                             next: () => this.router.navigate(['/projects']),

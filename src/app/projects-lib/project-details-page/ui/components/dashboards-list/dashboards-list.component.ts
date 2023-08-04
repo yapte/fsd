@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ProjectDetailsMediator } from '../../services/project-details-page.mediator';
 import { Observable } from 'rxjs';
-import { ProjectDashboard } from '../../models/project-dashboard';
+
+// core folder
+import { ProjectDashboard } from '../../../core/models/project-dashboard';
+
+// CURRENT ui folder
+import { ProjectDetailsMediator } from '../../services/project-details-page.mediator';
 
 @Component({
   selector: 'app-dashboards-list',
